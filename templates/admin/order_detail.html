@@ -1,0 +1,51 @@
+{% extends 'admin/base.html' %}
+
+{% block content %}
+<a href="{% url 'home' %}"><i style='font-size:15px' class='fas fa-angle-left'></i> Back</a>
+<hr>
+<h2>Order Details</h2>
+
+<h3>Order #{{ order.id }} - {{ order.status }}</h3>
+<p>Date Ordered: {{ order.date_ordered }}</p>
+<p>Customer: {{ order.customer }}</p>
+
+
+
+<!-- Order Items for the Current Order -->
+<ul>
+  {% for order_item in order.orderitem_set.all %}
+    <li>
+      Product: {{ order_item.product.name }}<br>
+      Quantity: {{ order_item.quantity }}<br>
+      Customize: {% if order_item.customize %}<img src="{{ order_item.customize.url }}" alt="Customization Image">{% endif %}<br>
+      Customer's Note: {{ order_item.customer_mind }}
+    </li>
+    <hr>
+  {% endfor %}
+</ul>
+
+<p>Total Items in Order: {{ order.get_cart_items }}</p>
+<p>Total Order Value: {{ order.get_cart_total }}</p>
+
+<hr>
+
+{% if order.shippingaddress %}
+  <h4>Delivery Address</h4>
+  <p>location: {{ order.shippingaddress.delivery }}</p>
+  <p>Address: {{ order.shippingaddress.address }}</p>
+  <p>Phone 1: {{ order.shippingaddress.phone1 }}</p>
+  <p>Phone 2: {{ order.shippingaddress.phone2 }}</p>
+  
+{% else %}
+  <p>No shipping address available for this order.</p>
+{% endif %}
+<hr>
+
+  <form method="post">
+    {% csrf_token %}
+    {{ formset.as_p }}
+    <button type="submit">Update Order</button>
+  </form>
+
+  
+{% endblock %}

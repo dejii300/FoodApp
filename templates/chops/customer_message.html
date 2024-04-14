@@ -1,0 +1,25 @@
+{% extends 'chops/base.html' %}
+
+{% block content %}
+<section class="section section-sm bg-default">
+  <h2>Customer Dashboard</h2>
+  {% for message in customer_messages %}
+    <div>
+      <p><strong>{{ message.sender_name }}:</strong> {{ message.message }}</p>
+      {% with staff_reply=message.get_staff_reply %}
+        {% if staff_reply %}
+          <p><strong>Staff Reply:</strong> {{ staff_reply }}</p>
+        {% else %}
+          <p><em>No staff reply yet.</em></p>
+        {% endif %}
+      {% endwith %}
+    </div>
+  {% endfor %}
+
+  <form method="post" action="{% url 'customer_message' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Submit</button>
+  </form>
+</section>  
+{% endblock %}

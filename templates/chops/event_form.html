@@ -1,0 +1,96 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/fonts.css' %}">
+    <link rel="stylesheet" href="{% static 'css/event.css' %}">
+    <title>DailyFood</title>
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'images/logo/favicon.png' %}">
+    
+    
+    
+</head>
+<body>
+  <form>
+    <a href="{% url 'index' %}"><i style='font-size:15px' class='fas fa-angle-left'></i> Back</a>
+    <br>
+    <button id="showSmallchopsBtn">Click to see all smallchops</button>
+    
+    <div id="smallchopsContainer" style="display: none;">
+       
+        {% for evtproduct in evtproducts %}
+            <div class="evtproduct-row">
+                <div class="product-container">
+                    <img src="{{ evtproduct.imageURL }}" alt="evtproduct Image">
+                    <h2>{{ evtproduct.name }}</h2>
+                    <p>{{ evtproduct.description }}</p>
+                    <p class="price">₦{{ evtproduct.price|floatformat:2 }}</p>
+                </div>
+            </div>
+        {% endfor %}
+        <div class="pagination">
+            <span class="step-links">
+                {% if page_obj.has_previous %}
+                    <a href="?page=1">&laquo; first</a>
+                    <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+                {% endif %}
+        
+                <span class="current">
+                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                </span>
+        
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}">next</a>
+                    <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+                {% endif %}
+            </span>
+        </div>
+    </div>
+
+</form>
+
+
+    <form method="post" action="{% url 'event_form' %}">
+      
+       {% csrf_token %}
+
+        <label for="{{ form.first_name.id_for_label }}">First Name</label>
+        <input type="text" name="{{ form.first_name.name }}" placeholder="Enter first name" value="{{ form.first_name.value|default:'' }}" required>
+
+        <label for="{{ form.last_name.id_for_label }}">Last Name</label>
+        <input type="text" name="{{ form.last_name.name }}" placeholder="Enter last name" value="{{ form.last_name.value|default:'' }}" required>
+
+        <label for="{{ form.address.id_for_label }}">Address</label>
+        <textarea name="{{ form.address.name }}" placeholder="Enter address" required>{{ form.address.value|default:'' }}</textarea>
+
+        <label for="{{ form.date.id_for_label }}">Date</label>
+        <input type="date" name="{{ form.date.name }}" value="{{ form.date.value|default:'' }}" required>
+        
+        <label for="{{ form.time.id_for_label }}">Time</label>
+        <div class="formtime">
+          
+          <input type="time" name="{{ form.time.name }}" placeholder="Select time" value="{{ form.time.value|default:'' }}" required>
+          {{form.time_type}}
+        </div>
+
+
+        <label for="{{ form.phone1.id_for_label }}">Phone 1</label>
+        <input type="text" name="{{ form.phone1.name }}" placeholder="Enter phone 1" value="{{ form.phone1.value|default:'' }}" required>
+
+        <label for="{{ form.phone2.id_for_label }}">Phone 2</label>
+        <input type="text" name="{{ form.phone2.name }}" placeholder="Enter phone 2" value="{{ form.phone2.value|default:'' }}" required>
+        
+       
+        <label for="{{ form.evtproducts.id_for_label }}">Select smallchops:</label>
+        <div class="inputp">{{form.evtproducts }}</div>
+        
+        <!-- Add labels and form fields for other fields in a similar way -->
+
+        <button type="submit">Continue</button>
+    </form>
+<script src="{% static 'js/cart.js' %}"></script>
+</body>
+</html>
+

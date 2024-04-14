@@ -1,0 +1,38 @@
+{% extends 'admin/base.html' %}
+
+{% block content %}
+    <a href="{% url 'daily_total' %}"><i style='font-size:15px' class='fas fa-angle-left'></i> Back</a>
+    <hr>
+    <h2>Comments for Approval</h2>
+    
+    {% for comment in page_obj %}
+    <div class="card card-body">
+        <table>
+            <tr>
+            <td class="ti"><a class="btn btn-sm btn-danger"  href="{% url 'delete_comment' comment.pk %}">delete</a></td>
+            <td class="ti"><p> {{ comment.content }}</p></td>
+            <td class="ti"><a class="btn btn-sm btn-info" href="{% url 'approve_comment' comment.id %}">Approve</a> {{ comment.customer.username }} - {{comment.customer.email}}</td>
+            </tr>
+        </table>
+        
+    </div>
+    {% endfor %}
+    
+    <div class="pagination">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+                <a href="?page=1">&laquo; first</a>
+                <a href="?page={{ page_obj.previous_page_number }}">&laquo; previous</a>
+            {% endif %}
+    
+            <span class="current">
+                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+            </span>
+    
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">next &raquo;</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+{% endblock %}

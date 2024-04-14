@@ -1,0 +1,183 @@
+
+      {% extends 'chops/base.html' %}
+
+      {% load static %}
+      {% block content%}
+      <!-- parallax top-->
+      <!-- Breadcrumbs -->
+      <section class="bg-gray-7">
+        <div class="breadcrumbs-custom box-transform-wrap context-dark">
+          <div class="container">
+            <h3 class="breadcrumbs-custom-title">About us</h3>
+            <div class="breadcrumbs-custom-decor"></div>
+          </div>
+          <div class="box-transform" style="background-image: url('images/logo/Logo1.png');"></div>
+        </div>
+        <div class="container">
+          <ul class="breadcrumbs-custom-path">
+            <li><a href="{% url 'index' %}">Home</a></li>
+            <li class="active">About us</li>
+          </ul>
+        </div>
+      </section>
+      <section class="section section-lg bg-default">
+        <div class="container">
+          <div class="tabs-custom row row-50 justify-content-center flex-lg-row-reverse text-center text-md-left" id="tabs-4">
+            <div class="col-lg-4 col-xl-3">
+              <ul class="nav list-category list-category-down-md-inline-block">
+                <li class="list-category-item wow fadeInRight" role="presentation" data-wow-delay="0s"><a class="active" href="#tabs-4-1" data-toggle="tab">About us</a></li>
+                <li class="list-category-item wow fadeInRight" role="presentation" data-wow-delay=".1s"><a href="#tabs-4-2" data-toggle="tab">Our Mission</a></li>
+                <li class="list-category-item wow fadeInRight" role="presentation" data-wow-delay=".2s"><a href="#tabs-4-3" data-toggle="tab">Our Goals</a></li>
+                <li class="list-category-item wow fadeInRight" role="presentation" data-wow-delay=".3s"><a href="#tabs-4-4" data-toggle="tab">Our Values</a></li>
+              </ul>
+            </div>
+            <div class="col-lg-8 col-xl-9">
+              <!-- Tab panes-->
+              <div class="tab-content tab-content-1">
+                <div class="tab-pane fade show active" id="tabs-4-1">
+                  <h4>A few words about us</h4>
+                  <p>At Dailyfood, we take pride in delivering a culinary experience that tantalizes taste buds and celebrates the rich flavors of Nigerian small chops and grills. Established with a passion for exceptional food and a commitment to quality, we bring you a delightful array of handcrafted dishes that reflect the essence of local cuisine.</p><img src="{% static 'images/logo/Logo1.png' %}" alt="" width="835" height="418"/>
+                </div>
+                <div class="tab-pane fade" id="tabs-4-2">
+                  <h4>Offering the Best smallchops & grills in Nigeria</h4>
+                  <p>We are thrilled to share the exciting news that Dailyfood is now offering the absolute best in small chops and grills across Nigeria! At Dailyfood, we believe in elevating your culinary experience with a delightful array of flavors, textures, and quality ingredients that are sure to tantalize your taste buds.</p><img src="{% static 'images/logo/Logo1.png' %}" alt="" width="835" height="418"/>
+                </div>
+                <div class="tab-pane fade" id="tabs-4-3">
+                  <h4>Providing Top-notch Customer Service</h4>
+                  <p>We adhere to strict hygiene and food safety standards to build trust with our customers. Ensure that our kitchen, staff, and processes comply with health regulations to guarantee the safety of the food we serve.</p>
+                  <p>Our staffs are being trained to provide efficient and friendly service. Quick and attentive service contributes to customer satisfaction and encourages repeat business and also encourage customer feedback and use it as a tool for improvement. Learn from both positive and negative reviews to enhance our offerings and address any shortcomings..</p><img src="{% static 'images/logo/Logo1.png' %}" alt="" width="835" height="418"/>
+                </div>
+                <div class="tab-pane fade" id="tabs-4-4">
+                  <h4>Integrity & Dedication</h4>
+                  <p>Start with sourcing the freshest and highest quality ingredients for our small chops and grills. This includes vegetables, meats, spices, and condiments. Freshness contributes significantly to the flavor and overall appeal of our offerings, we have skilled chefs who are experienced in the art of preparing small chops and grills. The presentation and taste of the dishes should reflect attention to detail and culinary expertise.</p>
+                  <p> We create a diverse and appealing menu that caters to a wide range of tastes. Include popular Nigerian small chops like spring rolls, samosas, puff-puff, and grills like gizzard, chicken, snail and fish. Offering variety ensures that we can attract a broader customer base.</p><img src="{% static 'images/logo/Logo1.png' %}" alt="" width="835" height="418"/>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Icon Classic-->
+      <section class="section section-lg bg-gray-100">
+        <div class="container">
+          <div class="row row-md row-50">
+            <div class="col-sm-6 col-xl-4 wow fadeInUp" data-wow-delay="0s">
+              <article class="box-icon-classic">
+                <div class="unit unit-spacing-lg flex-column text-center flex-md-row text-md-left">
+                  <div class="unit-left">
+                    <div class="box-icon-classic-icon linearicons-helicopter"></div>
+                  </div>
+                  <div class="unit-body">
+                    <h5 class="box-icon-classic-title"><a href="#">Free Delivery</a></h5>
+                    <p class="box-icon-classic-text">Lotus advenas ducunt ad gemna. Ubi est domesticus domina heu.</p>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <div class="col-sm-6 col-xl-4 wow fadeInUp" data-wow-delay=".2s">
+              <article class="box-icon-classic">
+                <div class="unit unit-spacing-lg flex-column text-center flex-md-row text-md-left">
+                  <div class="unit-left">
+                    <div class="box-icon-classic-icon linearicons-leaf"></div>
+                  </div>
+                  <div class="unit-body">
+                    <h5 class="box-icon-classic-title"><a href="#">Fresh Ingredients</a></h5>
+                    <p class="box-icon-classic-text">Albus, dexter particulas grauiter consumere de ferox, bi-color abactus.</p>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section section-lg bg-gray-100 text-left section-relative">
+        <div class="container">
+          <div class="row row-60 justify-content-center justify-content-xxl-between">
+            <div class="col-lg-6 col-xxl-5 position-static">
+              <h3>Our history</h3>
+              <div class="tabs-custom" id="tabs-5">
+                <div class="tab-content tab-content-1">
+                  <div class="tab-pane fade" id="tabs-5-1">
+                    <h5 class="font-weight-normal text-transform-none text-spacing-75">Dailyfood Establishment and First Happy Clients</h5>
+                    
+                  </div>
+                  <div class="tab-pane fade" id="tabs-5-2">
+                    <h5 class="font-weight-normal text-transform-none text-spacing-75">Organizing a Free Pizza Delivery Service in Lagos</h5>
+                    
+                  </div>
+                  <div class="tab-pane fade" id="tabs-5-3">
+                    <h5 class="font-weight-normal text-transform-none text-spacing-75">Offering an Extended Range of smallshops</h5>
+                    
+                  </div>
+                  <div class="tab-pane fade show active" id="tabs-5-4">
+                    <h5 class="font-weight-normal text-transform-none text-spacing-75">Partnering with UC-BLACK</h5>
+                    
+                  </div>
+                </div>
+                <div class="list-history-wrap">
+                  <ul class="nav list-history">
+                    <li class="list-history-item" role="presentation"><a href="#tabs-5-1" data-toggle="tab">
+                        <div class="list-history-circle"></div>2021</a></li>
+                    <li class="list-history-item" role="presentation"><a href="#tabs-5-2" data-toggle="tab">
+                        <div class="list-history-circle"></div>2022</a></li>
+                    <li class="list-history-item" role="presentation"><a href="#tabs-5-3" data-toggle="tab">
+                        <div class="list-history-circle"></div>2023</a></li>
+                    <li class="list-history-item" role="presentation"><a class="active" href="#tabs-5-4" data-toggle="tab">
+                        <div class="list-history-circle"></div>2024</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-9 col-lg-6 position-static index-1">
+              <div class="bg-image-right-1 bg-image-right-lg"><img src="images/our_history-1110x710.jpg" alt="" width="1110" height="710"/>
+                <div class="link-play-modern"><a class="icon mdi mdi-play" data-lightgallery="item" href="https://www.youtube.com/watch?v=1UWpbtUupQQ"></a>
+                  <div class="link-play-modern-title">How we<span>Work</span></div>
+                  <div class="link-play-modern-decor"></div>
+                </div>
+                <div class="box-transform" style="background-image: url(images/our_history-1110x710.jpg);"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Our clients-->
+      <section class="section section-lg bg-default text-md-left">
+        <div class="container">
+          <div class="row row-60 justify-content-center flex-lg-row-reverse">
+            <div class="col-md-8 col-lg-6 col-xl-5">
+              <div class="offset-left-xl-70">
+                <h3 class="heading-3">What People Say</h3>
+                <div class="slick-quote">
+                  <!-- Slick Carousel-->
+                  <div class="slick-slider carousel-parent" data-autoplay="true" data-swipe="true" data-items="1" data-child="#child-carousel-5" data-for="#child-carousel-5" data-slide-effect="true">
+                    {% for comment in comments %}
+                    <div class="item">
+                      <!-- Quote Modern-->
+                      <article class="quote-modern">
+                        <h5 class="quote-modern-text"><span class="q">{{ comment.content }}</span></h5>
+                        <h5 class="quote-modern-author">{{ comment.customer.name }}</h5>
+                        <p class="quote-modern-status">Regular Client</p>
+                      </article>
+                    </div>
+                   
+                  </div>
+                  <div class="slick-slider child-carousel" id="child-carousel-5" data-arrows="true" data-for=".carousel-parent" data-items="4" data-sm-items="4" data-md-items="4" data-lg-items="4" data-xl-items="4" data-slide-to-scroll="1">
+                    <div class="item"><img class="img-circle" src="{{ request.comment.customer.profile_pic.url }}" alt="" width="83" height="83"/>
+                    </div>
+                  </div>
+                  {% endfor %}
+
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6 col-xl-7"><img src="{% static 'images/logo/Logo2.png' %}" alt="" width="669" height="447"/>
+            </div>
+          </div>
+        </div>
+      </section>
+      {%endblock%}
+
+              
+             

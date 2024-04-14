@@ -1,0 +1,30 @@
+{% extends 'admin/base.html' %}
+
+{% block content %}
+<a href="{% url 'product_list' %}"><i style='font-size:15px' class='fas fa-angle-left'></i> Back</a>
+<hr>
+  <h2>Create or Delete Category</h2>
+
+  <!-- Display form for creating new category -->
+  <form method="post" action="{% url 'create_category' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Create Category</button>
+  </form>
+
+  <!-- Display list of existing categories -->
+  <h3>Existing Categories:</h3>
+  <div class="card card-body">
+    <table class=" table table-sm">
+      <tr>
+    {% for category in categories %}
+      
+        <td>{{ category.name }}</td>
+        <td><a class="btn btn-sm btn-danger" href="{% url 'create_category' category.id %}?delete=true">Delete</a></td>
+      
+    {% endfor %}
+     </tr>
+
+    </table>
+  </div>  
+{% endblock %}

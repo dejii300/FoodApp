@@ -1,0 +1,22 @@
+{% load static %}
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <Img src="{% static 'images/logo/Logo2.png' %}" height="70px" width="70px">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <ul class="navbar-nav">
+        <li class="navbar-nav">
+        <a class="nav-link active" href="{% url 'home' %}">Dashboard</a>
+        </li>
+        <li class="navbar-nav">
+        <a class="nav-link" href="{% url 'product_list' %}">Products</a>
+        </li>
+      </li>
+    
+      </ul>
+    </div>
+    <a class="hello-msg" href="{% url 'daily_total' %}">Hello, {{ request.user }}</a>
+    <span><a class="cate" href="{% url 'logout' %}">Logout</a></span>
+</nav>

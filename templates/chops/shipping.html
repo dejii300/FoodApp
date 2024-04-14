@@ -1,0 +1,31 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/event.css' %}">
+    <link rel="stylesheet" href="{% static 'css/fonts.css' %}">
+    <title>DailyFood</title>
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'images/logo/favicon.png' %}">
+
+      
+
+      <form method="post" action="{% url 'shipping_view' %}">
+        <a href="{% url 'cart' %}"><i style='font-size:15px' class='fas fa-angle-left'></i> Back</a>
+        <h2> Delivery Address</h2>
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <button type="submit">Continue to Checkout</button>
+      </form>
+
+      
+      <ul>
+        {% for location in delivery_locations %}
+          <li>{{ location.name }}</li>
+        {% endfor %}
+      </ul>
+</head>
+</html>
+

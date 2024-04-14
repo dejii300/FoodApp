@@ -1,0 +1,43 @@
+{% extends 'admin/base.html' %}
+    
+{% block content %}
+    <a href="{% url 'daily_total' %}"><i style='font-size:15px' class='fas fa-angle-left'></i> Back</a>
+    <hr>
+
+    <form class="formS" method="GET">
+        <div class="search">
+          <input type="text" name="query" id="search-input" placeholder="Search products...">
+          <button class="buttonS" type="submit">Search</button>
+        </div>
+        <div  class="sug" id="search-suggestions"></div>
+      </form>
+    <h2>Delivery List</h2>
+    <td><a class="btn btn-sm btn-info"  href="{% url 'delivery-add'  %}">create</a></td>
+    <ul>
+        {% for delivery in page_obj %}
+        
+            <li>{{ delivery.location }} - {{ delivery.price }}</li>
+           
+            <td><a class="btn btn-sm btn-info"  href="{% url 'delivery-update' delivery.pk %}">update</a></td>
+            <td><a class="btn btn-sm btn-info"  href="{% url 'delivery-delete' delivery.pk %}">delete</a></td>
+        {% endfor %}
+    </ul>
+    <div class="pagination">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+                <a href="?page=1">&laquo; first</a>
+                <a href="?page={{ page_obj.previous_page_number }}">&laquo; previous</a>
+            {% endif %}
+    
+            <span class="current">
+                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+            </span>
+    
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">next &raquo;</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+
+{% endblock %}

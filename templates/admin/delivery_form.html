@@ -1,0 +1,13 @@
+{% extends 'admin/base.html' %}
+
+{% block content %}
+<a href="{% url 'delivery-list' %}"><i style='font-size:15px' class='fas fa-angle-left'></i> Back</a>
+<h2>{% if form.instance.pk %}Update{% else %}Create{% endif %} Delivery</h2>
+
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">{% if form.instance.pk %}Update{% else %}Create{% endif %} Delivery</button>
+</form>
+
+{% endblock %}

@@ -1,0 +1,51 @@
+
+{% load static %}
+
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>DailyFood</title>
+        <link rel="shortcut icon" type="image/x-icon" href="{% static 'images/logo/favicon.png' %}">
+        <!-- Include your external CSS stylesheet -->
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    </head>
+<body>
+    <form method="post">
+        {% csrf_token %}
+        <h1>Log in</h1>
+        <div class="inset">
+        <p>
+            <label for="username">USERNAME</label>
+            <input type="text" name="username" id="username" required>
+        </p>
+        <p>
+        <label for="password">PASSWORD</label>
+        <input type="password" name="password" id="password">
+        </p>
+        <p class="rb">
+        <label for="remember">Remember me</label>
+        <input class="rbb" type="checkbox" name="remember" id="remember">
+        
+        </p>
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        </div>
+        
+        <p class="p-container">
+        
+            <span class="aut" ><a class="ar" href="{% url 'register' %}">signup</a></span>
+        
+            <span><a class="ar" href="{% url 'reset_password' %}">Forgot password ?</a></span>
+           
+        <input type="submit" name="go" id="go" value="Log in">
+        </p>
+    </form>
+</body>   
+</html>

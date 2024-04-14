@@ -1,0 +1,17 @@
+{% extends 'admin/base.html' %}
+
+{% block content %}
+<a href="{% url 'video_list' %}"><i style='font-size:15px' class='fas fa-angle-left'></i> Back</a>
+<br>
+
+<h1>{{ video.title }}</h1>
+<p>{{ video.description }}</p>
+<video width="560" height="315" controls controlsList="nodownload">
+    <source src="{{ video.video_file.url }}" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+<a href="{% url 'video_edit' pk=video.pk %}">Edit</a>
+<a href="{% url 'video_delete' pk=video.pk %}">Delete</a>
+
+{%endblock%}

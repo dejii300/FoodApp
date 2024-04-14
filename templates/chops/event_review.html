@@ -1,0 +1,52 @@
+
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/fonts.css' %}">
+    <link rel="stylesheet" href="{% static 'css/event.css' %}">
+    <title>DailyFood</title>
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'images/logo/favicon.png' %}">
+
+
+  
+
+    <form method="post" action="{% url 'review_page' event_id=event.id %}">
+      <a href="{% url 'event_form' %}"><i style='font-size:15px' class='fas fa-angle-left'></i> Back</a>
+      <h2>Review</h2>
+      <p>Event: {{ event }}</p>
+      {% csrf_token %}
+    
+      <table>
+          <thead>
+              <tr>
+                  <th>Smallchops</th>
+                  <th>Number of Guests</th>
+              </tr>
+          </thead>
+          <tbody>
+            {{ formset.management_form }}
+              {% for form in formset %}
+                  <tr>
+                      <td  class="table">{{ form }}</td>
+                        {% if messages %}
+                        <ul class="messages">
+                          {% for message in messages %}
+                            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                          {% endfor %}
+                        </ul>
+                      {% endif %}
+                    </tr>
+
+            {% endfor %}
+          </tbody>
+          
+    </table>
+
+      <button type="submit" class="btn btn-primary">Proceed</button>
+  </form>
+  
+  </body>
+  </html>

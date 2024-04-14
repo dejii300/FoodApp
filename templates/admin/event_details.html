@@ -1,0 +1,38 @@
+{% extends 'admin/base.html' %}
+
+{% block content %}
+<body>
+    <a href="{% url 'home' %}"><i style='font-size:15px' class='fas fa-angle-left'></i> Back</a>
+    <hr>
+
+<h1>{{ event.customer }}'s Event Details</h1>
+<br>
+<h3>Event #{{ event.id }} - {{ event.status }}</h3>
+
+<ul>
+    <li><strong>fullname:</strong> {{ event.first_name }} {{ event.last_name }}</li>
+    <li><strong>Address:</strong> {{ event.address }}</li>
+    <li><strong>Date and Time:</strong> {{ event.date }} - {{event.time}}</li>
+    <li><strong>Time Type:</strong> {{ event.get_time_type_display }}</li>
+    <li><strong>Phone 1:</strong> {{ event.phone1 }}</li>
+    <li><strong>Phone 2:</strong> {{ event.phone2 }}</li>
+    <li><strong>Payment Status:</strong> {{ event.paid }}</li>
+    <li><strong>Transaction ID:</strong> {{ event.transaction_id }}</li>
+</ul>
+
+<h2>Items:</h2>
+<ul>
+    {% for event_item in event_items %}
+        <li>
+            <strong>{{ event_item.chops.name }}</strong> - Guests: {{ event_item.guest }}
+        </li>
+    {% endfor %}
+</ul>
+<br>
+<form method="post">
+    {% csrf_token %}
+    {{ formset.as_p }}
+    <button type="submit">Update Order</button>
+  </form>
+</body>
+{% endblock %}

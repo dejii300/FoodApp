@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DailyFood</title>
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'images/logo/favicon.png' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="profile-container">
+        <h1>Payment Successful!</h1>
+
+        <p>Dear customer thank you for booking event with us, we will gladly come to the event locattion on the day of the event.  . Here's your payment ID: {{payment.ref}}</p>
+        <br>
+        <a href="{% url 'event_form' %}" class="btn-primary clickbu">OK</a>
+        <!-- Add other elements or styling as needed -->
+   </div>
+
+</body>
+</html>

@@ -1,0 +1,275 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #333 url(../images/loginpic.jpg);
+    margin: 0;
+    padding: 0;
+}
+
+form {
+    max-width: 800px;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.login--wrapper {
+    display: flex;
+    align-items: center;
+    height: 80vh;
+    justify-content: center;
+}
+
+.text-danger {
+    color: #dc3545;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.form {
+    max-width: 500px;
+}
+
+.formtime {
+    display: flex;
+    max-width: 250px;
+    
+    background-color: #fff;
+    
+}
+
+label {
+    display: flex;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.labels {
+    display: flex;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.inputr {
+    
+    width: 50px;
+    padding: 10px;
+    margin: 10px;
+    margin-bottom: 50px;
+    box-sizing: border-box;
+    border-radius: 4px;
+    background-color: initial;
+    cursor: default;
+    appearance: auto;
+    box-sizing: border-box;
+    
+    padding: initial;
+    border: initial;
+}
+
+.inputp {
+  width: 100px;
+  display: flex;
+  margin-bottom: 20px;
+  background-color: #2c2a1b;
+  color: #fff;
+  cursor: pointer;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  border-bottom: 2px solid rgb(253, 253, 253);
+
+  margin: 10px;
+  padding: 15px;
+  
+  display: flex;
+  border-radius: 10px;
+  
+}
+
+
+
+button {
+    background-color: #4caf50;
+    color: #fff;
+    cursor: pointer;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.evtproduct-row {
+display: inline-flex;
+align-items: stretch;
+padding-bottom: 1px;
+margin-bottom: 10px;
+margin-right: 10px;
+flex-direction: row;
+
+}
+
+.table{
+    max-width: 100px;
+    margin-right: 200px;
+}
+
+.product-container {
+width: 200px;
+margin: 10px;
+padding: 15px;
+background-color: #fff;
+border: 1px solid #ddd;
+border-radius: 1px;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.evtproduct{
+display: flex;
+}
+
+img {
+max-width: 100%;
+height: auto;
+border-radius: 5px;
+}
+
+h2 {
+color: #333;
+}
+
+p {
+color: #666;
+}
+
+.price {
+color: #ff6347;
+font-weight: bold;
+}
+
+
+
+.table_b {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+h3 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+p {
+    margin-bottom: 20px;
+}
+
+.button_b {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.cancel {
+    margin-left: 70px;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.pay_btn{
+	align-items: stretch;
+}
+
+.formx{
+	max-width: 800px;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+}
+
+a {
+    display: block;
+    margin-top: 5px;
+    text-decoration: none;
+    color: black;
+    font-size: small;
+}
+
+.pagination {
+	margin-top: 20px;
+	color: #000000;
+	text-align: center;
+}
+
+.pagination a {
+	color: #007bff;
+	display: inline-block;
+	padding: 8px 16px;
+	text-decoration: none;
+	transition: background-color 0.3s;
+	border: 1px solid #007bff;
+	border-radius: 5px;
+	margin: 0 4px;
+}
+
+.pagination a:hover {
+	background-color: #007bff;
+	color: white;
+}
+
+.pagination .current {
+	font-weight: bold;
+}
+
+.can{
+    color: white;
+}
+
+

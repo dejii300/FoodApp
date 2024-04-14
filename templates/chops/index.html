@@ -1,0 +1,386 @@
+{% extends "chops/base.html" %}
+{% load static %}
+
+      {% block content %}
+      
+     <!-- Swiper-->
+      <section class="section swiper-container swiper-slider swiper-slider-2 swiper-slider-3" data-loop="true" data-autoplay="5000" data-simulate-touch="false" data-slide-effect="fade">
+        <div class="swiper-wrapper text-sm-left">
+          <div class="swiper-slide context-dark" data-slide-bg="{% static 'images/index/smallchops8.jpg' %}">
+            <div class="swiper-slide-caption section-md">
+              <div class="container">
+                <div class="row">
+                  <div class="col-sm-9 col-md-8 col-lg-7 col-xl-7 offset-lg-1 offset-xxl-0">
+                    <h1 class="oh swiper-title"><span class="d-inline-block" data-caption-animate="slideInUp" data-caption-delay="0">Perfect smallchops.</span></h1>
+                    <p class="pu big swiper-text" data-caption-animate="fadeInLeft" data-caption-delay="300">Experience the taste of a perfect smallchops at dailyfood, one of the best in Nigeria!</p><a class="button button-lg button-primary button-winona button-shadow-2" href="{% url 'chops' %}" data-caption-animate="fadeInUp" data-caption-delay="300">Order Now!</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide context-dark" data-slide-bg="{% static 'images/index/chops7.png' %}">
+            <div class="swiper-slide-caption section-md">
+              <div class="container">
+                <div class="row">
+                  <div class="col-sm-8 col-lg-7 offset-lg-1 offset-xxl-0">
+                    <h1 class="oh swiper-title"><span class="d-inline-block" data-caption-animate="slideInDown" data-caption-delay="0">Quality ingredients.</span></h1>
+                    <p class="pu big swiper-text" data-caption-animate="fadeInRight" data-caption-delay="300">We use only the best ingredients to make one-of-a-kind smallchops for our customers.</p>
+                    <div class="button-wrap oh"><a class="button button-lg button-primary button-winona button-shadow-2" href="{% url 'chops' %}" data-caption-animate="slideInUp" data-caption-delay="0">Order Now!</a></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Swiper Pagination-->
+        <div class="swiper-pagination" data-bullet-custom="true"></div>
+        <!-- Swiper Navigation-->
+        <div class="swiper-button-prev">
+          <div class="preview">
+            <div class="preview__img"></div>
+          </div>
+          <div class="swiper-button-arrow"></div>
+        </div>
+        <div class="swiper-button-next">
+          <div class="swiper-button-arrow"></div>
+          <div class="preview">
+            <div class="preview__img"></div>
+          </div>
+        </div>
+      </section>
+      <!-- What We Offer-->
+      <section class="section section-md bg-default">
+        <a class="section section-banner av" href="https://www.templatemonster.com/intense-multipurpose-html-template.html"><img src="{% static 'images/banner/adv-here.jpg' %}" alt="" width="1600" height="310"></a>
+        <div class="container">
+          <h3 class="oh-desktop"><span class="d-inline-block wow slideInDown">Our Menu</span></h3>
+          <div class="row row-md row-30">
+            <div class="col-sm-6 col-lg-4">
+              <div class="oh-desktop">
+                <!-- Services Terri-->
+                <article class="services-terri wow slideInUp">
+                  <div class="services-terri-figure"><img src="{% static 'images/index/mosa.jpg' %}" alt="" width="370" height="278"/>
+                  </div>
+                  <div class="services-terri-caption">
+                    <h5 class="services-terri-title"><a href="#">Mosa</a></h5>
+                  </div>
+                </article>
+              </div>
+            </div>
+            <div class="col-sm-6 col-lg-4">
+              <div class="oh-desktop">
+                <!-- Services Terri-->
+                <article class="services-terri wow slideInDown">
+                  <div class="services-terri-figure"><img src="{% static 'images/index/spring roll.jpg' %}" alt="" width="370" height="278"/>
+                  </div>
+                  <div class="services-terri-caption">
+                    <h5 class="services-terri-title"><a href="#">Spring Roll</a></h5>
+                  </div>
+                </article>
+              </div>
+            </div>
+            <div class="col-sm-6 col-lg-4">
+              <div class="oh-desktop">
+                <!-- Services Terri-->
+                <article class="services-terri wow slideInUp">
+                  <div class="services-terri-figure"><img src="{% static 'images/index/samosa.jpg' %}" alt="" width="370" height="278"/>
+                  </div>
+                  <div class="services-terri-caption">
+                    <h5 class="services-terri-title"><a href="#">Samosa</a></h5>
+                  </div>
+                </article>
+              </div>
+            </div>
+            <div class="col-sm-6 col-lg-4">
+              <div class="oh-desktop">
+                <!-- Services Terri-->
+                <article class="services-terri wow slideInDown">
+                  <div class="services-terri-figure"><img src="{% static 'images/index/french fries.jpg' %}" alt="" width="370" height="278"/>
+                  </div>
+                  <div class="services-terri-caption">
+                    <h5 class="services-terri-title"><a href="#">French Fries</a></h5>
+                  </div>
+                </article>
+              </div>
+            </div>
+            <div class="col-sm-6 col-lg-4">
+              <div class="oh-desktop">
+                <!-- Services Terri-->
+                <article class="services-terri wow slideInUp">
+                  <div class="services-terri-figure"><img src="{% static 'images/index/gizzard.jpg' %}"  alt="" width="370" height="278"/>
+                  </div>
+                  <div class="services-terri-caption">
+                    <h5 class="services-terri-title"><a href="#">Gizzard</a></h5>
+                  </div>
+                </article>
+              </div>
+            </div>
+            <div class="col-sm-6 col-lg-4">
+              <div class="oh-desktop">
+                <!-- Services Terri-->
+                <article class="services-terri wow slideInDown">
+                  <div class="services-terri-figure"><img src="{% static 'images/index/fish.jpg' %}"  alt="" width="370" height="278"/>
+                  </div>
+                  <div class="services-terri-caption">
+                    <h5 class="services-terri-title"><a href="#">Fish</a></h5>
+                  </div>
+                </article>
+              </div>
+            </div>
+            <div class="col-sm-6 col-lg-4">
+              <div class="oh-desktop">
+                <!-- Services Terri-->
+                <article class="services-terri wow slideInDown">
+                  <div class="services-terri-figure"><img src="{% static 'images/index/Grilled-chicken-.jpg' %}"  alt="" width="370" height="278"/>
+                  </div>
+                  <div class="services-terri-caption">
+                    <h5 class="services-terri-title"><a href="#">Grilled Chicken</a></h5>
+                  </div>
+                </article>
+              </div>
+            </div>
+            <div class="col-sm-6 col-lg-4">
+              <div class="oh-desktop">
+                <!-- Services Terri-->
+                <article class="services-terri wow slideInDown">
+                  <div class="services-terri-figure"><img src="{% static 'images/index/puffpuff.png' %}"  alt="" width="370" height="278"/>
+                  </div>
+                  <div class="services-terri-caption">
+                    <h5 class="services-terri-title"><a href="#">Puff Puff</a></h5>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section CTA-->
+      <section class="primary-overlay section parallax-container" data-parallax-img="{% static 'images/index/party5.jpg' %}">
+        <div class="parallax-content section-xl context-dark text-md-left">
+          <div class="container">
+            <div class="row justify-content-end">
+              <div class="col-sm-8 col-md-7 col-lg-5">
+                <div class="cta-modern">
+                  <h3 class="cta-modern-title wow fadeInRight">Smallchops for events.</h3>
+                  <p class="lead">Dailyfood is the place of the best smallchops and high-quality service.</p>
+                  <p class="cta-modern-text oh-desktop" data-wow-delay=".1s"><span class="cta-modern-decor wow slideInLeft"></span><span class="d-inline-block wow slideInDown"></span></p><a class="button button-md button-secondary-2 button-winona wow fadeInUp" href="{% url 'event_form' %}" data-wow-delay=".2s">Book Event Now!</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+
+      <!-- Section CTA-->
+      <section class="primary-overlay section parallax-container" data-parallax-img="{% static 'images/index/raw smallchops.png' %}">
+        <div class="parallax-content section-xxl context-dark text-md-left">
+          <div class="container">
+            <div class="row justify-content-end">
+              <div class="col-sm-9 col-md-7 col-lg-5">
+                <div class="cta-modern">
+                  <h3 class="cta-modern-title cta-modern-title-2 oh-desktop"><span class="d-inline-block wow fadeInLeft">We also have fresh small chops for our customers</span></h3>
+                  <p class="cta-modern-text cta-modern-text-2 oh-desktop" data-wow-delay=".1s"><span class="cta-modern-decor cta-modern-decor-2 wow slideInLeft"></span><span class="d-inline-block wow slideInUp">Taste some of the best smallchops!</span></p><a class="button button-lg button-secondary button-winona wow fadeInRight" href="{% url 'chops' %}" data-wow-delay=".2s">Order Fresh</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section CTA-->
+      <section class="primary-overlay section parallax-container" data-parallax-img="{% static 'images/index/cooking.jpg' %}">
+        <div class="parallax-content section-xxl context-dark text-md-left">
+          <div class="container">
+            <div class="row justify-content-end">
+              <div class="col-sm-9 col-md-7 col-lg-5">
+                <div class="cta-modern">
+                  <h3 class="cta-modern-title cta-modern-title-2 oh-desktop"><span class="d-inline-block wow fadeInLeft">Improve your cooking skills </span></h3>
+                  <p class="cta-modern-text cta-modern-text-2 oh-desktop" data-wow-delay=".1s"><span class="cta-modern-decor cta-modern-decor-2 wow slideInLeft"></span><span class="d-inline-block wow slideInUp">learn how to prepare a delicious meal for good living</span></p><a class="button button-lg button-secondary button-winona wow fadeInRight" href="{% url 'foodvideolist' %}" data-wow-delay=".2s">Explore</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- What We Offer-->
+      <section class="section section-xl bg-default">
+        <div class="container">
+          <h3 class="wow fadeInLeft">What People Say</h3>
+        </div>
+        <div class="container container-style-1">
+          <div class="owl-carousel owl-style-12" data-items="1" data-sm-items="2" data-lg-items="3" data-margin="30" data-xl-margin="45" data-autoplay="true" data-nav="true" data-center="true" data-smart-speed="400">
+            <!-- Quote Tara-->
+            {% for comment in comments %}
+            <article class="quote-tara">
+              <div class="quote-tara-caption">
+                <div class="quote-tara-text">
+                  <p class="q">{{ comment.content }}</p>
+                </div>
+                <div class="quote-tara-figure"><img src="{{ comment.customer.picURL}}" alt="" width="115" height="115"/>
+                </div>
+              </div>
+              <h6 class="quote-tara-author">{{ comment.customer.name }} </h6>
+              <div class="quote-tara-status">Customer</div>
+              
+            </article>
+            {% endfor %}
+          </div>
+        </div>
+      </section>
+
+     
+
+      <section class="section section-last bg-default">
+        <div class="container-fluid container-inset-0 isotope-wrap">
+          <div class="row row-10 gutters-10 isotope" data-isotope-layout="masonry" data-isotope-group="gallery" data-lightgallery="group">
+            <div class="col-xs-6 col-sm-4 col-xl-2 isotope-item oh-desktop">
+              <!-- Thumbnail Mary-->
+              <article class="thumbnail thumbnail-mary thumbnail-mary-2 wow slideInLeft"><a class="thumbnail-mary-figure" href="{% static 'images/index/chops7.jpg '%}" data-lightgallery="item"><img src="{% static 'images/index/chops7.jpg'%}" alt="" width="310" height="585"/></a>
+                <div class="thumbnail-mary-caption">
+                  <div>
+                    <h6 class="thumbnail-mary-title"><a href="{% url 'chops' %}">Best Ingredients</a></h6>
+                    <div class="thumbnail-mary-location">Tasty Smallchops</div>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <div class="col-xs-6 col-sm-8 col-xl-4 isotope-item oh-desktop">
+              <!-- Thumbnail Mary-->
+              <article class="thumbnail thumbnail-mary thumbnail-mary-big wow slideInRight"><a class="thumbnail-mary-figure" href= "{% static 'images/index/chops7.png'%}" data-lightgallery="item"><img src="{% static 'images/index/chops7.png'%}" alt="" width="631" height="587"/></a>
+                <div class="thumbnail-mary-caption">
+                  <div>
+                    <h6 class="thumbnail-mary-title"><a href="{% url 'chops' %}">Soft</a></h6>
+                    <div class="thumbnail-mary-location">Well Fried</div>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <div class="col-xs-6 col-sm-4 col-xl-2 isotope-item oh-desktop">
+              <!-- Thumbnail Mary-->
+              <article class="thumbnail thumbnail-mary thumbnail-mary-2 wow slideInDown"><a class="thumbnail-mary-figure" href="{% static 'images/index/chops1.jpg'%}" data-lightgallery="item"><img src="{% static 'images/index/chops1.jpg'%}" alt="" width="311" height="289"/></a>
+                <div class="thumbnail-mary-caption">
+                  <div>
+                    <h6 class="thumbnail-mary-title"><a href="{% url 'chops' %}">quality Dishware</a></h6>
+                    <div class="thumbnail-mary-location">Top-notch package</div>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <div class="col-xs-6 col-sm-8 col-xl-4 isotope-item oh-desktop">
+              <!-- Thumbnail Mary-->
+              <article class="thumbnail thumbnail-mary wow slideInUp"><a class="thumbnail-mary-figure" href="{% static 'images/index/chops3.jpg'%}" data-lightgallery="item"><img src="{% static 'images/index/chops3.jpg'%}" alt="" width="631" height="289"/></a>
+                <div class="thumbnail-mary-caption">
+                  <div>
+                    <h6 class="thumbnail-mary-title"><a href="{% url 'chops' %}">Fresh Chops</a></h6>
+                    <div class="thumbnail-mary-location">Exclusive selection</div>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <div class="col-xs-6 col-sm-4 col-xl-2 isotope-item oh-desktop">
+              <!-- Thumbnail Mary-->
+              <article class="thumbnail thumbnail-mary thumbnail-mary-2 wow slideInUp"><a class="thumbnail-mary-figure" href="{% static 'images/index/chopss.jpg'%}" data-lightgallery="item"><img src="{% static 'images/index/chopss.jpg'%}" alt="" width="311" height="289"/></a>
+                <div class="thumbnail-mary-caption">
+                  <div>
+                    <h6 class="thumbnail-mary-title"><a href="{% url 'chops' %}">Exotic Ingredients</a></h6>
+                    <div class="thumbnail-mary-location">Summer Taste</div>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <div class="col-xs-6 col-sm-4 col-xl-2 isotope-item oh-desktop">
+              <!-- Thumbnail Mary-->
+              <article class="thumbnail thumbnail-mary thumbnail-mary-2 wow slideInRight"><a class="thumbnail-mary-figure" href="{% static 'images/index/chops5.jpg'%}"data-lightgallery="item"><img src="{% static 'images/index/chops5.jpg'%}" alt="" width="311" height="289"/></a>
+                <div class="thumbnail-mary-caption">
+                  <div>
+                    <h6 class="thumbnail-mary-title"><a href="{% url 'chops' %}">All Types of smallchops</a></h6>
+                    <div class="thumbnail-mary-location">Special Recipes</div>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <div class="col-xs-6 col-sm-4 col-xl-2 isotope-item oh-desktop">
+              <!-- Thumbnail Mary-->
+              <article class="thumbnail thumbnail-mary thumbnail-mary-2 wow slideInLeft"><a class="thumbnail-mary-figure" href="{% static 'images/index/chops8.jpg'%}" data-lightgallery="item"><img src="{% static 'images/index/chops8.jpg'%}" alt="" width="311" height="289"/></a>
+                <div class="thumbnail-mary-caption">
+                  <div>
+                    <h6 class="thumbnail-mary-title"><a href="{% url 'chops' %}">Diverse menu</a></h6>
+                    <div class="thumbnail-mary-location">Pick Your Favorite chops</div>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Tell-->
+      
+
+      <!-- Section Services  Last section-->
+      <section class="section section-sm bg-default">
+        <div class="container">
+          <div class="owl-carousel owl-style-11 dots-style-2" data-items="1" data-sm-items="1" data-lg-items="2" data-xl-items="4" data-margin="30" data-dots="true" data-mouse-drag="true" data-rtl="true">
+            <article class="box-icon-megan wow fadeInUp">
+              <div class="box-icon-megan-header">
+                  <div class="box-icon-megan-icon linearicons-bag"></div>
+              </div>
+              <h5 class="box-icon-megan-title"><a href="#"> Delivery</a></h5>
+              <p class="box-icon-megan-text">If you order more smallchops now , we will gladly deliver them to you in short period of time.</p>
+          </article>
+            <article class="box-icon-megan wow fadeInUp" data-wow-delay=".05s">
+              <div class="box-icon-megan-header">
+                <div class="box-icon-megan-icon linearicons-map2"></div>
+              </div>
+              <h5 class="box-icon-megan-title"><a href="#">Convenient Location</a></h5>
+              <p class="box-icon-megan-text">Please make sure your address is correct when placing your order to avoid delay delivery</p>
+            </article>
+            <article class="box-icon-megan wow fadeInUp" data-wow-delay=".1s">
+              <div class="box-icon-megan-header">
+                <div class="box-icon-megan-icon linearicons-radar"></div>
+              </div>
+              <h5 class="box-icon-megan-title"><a href="#">Free Wi-Fi</a></h5>
+              <p class="box-icon-megan-text">We have free park available to all customers that buy more than ten park of smallshops</p>
+            </article>
+            <article class="box-icon-megan wow fadeInUp" data-wow-delay=".15s">
+              <div class="box-icon-megan-header">
+                <div class="box-icon-megan-icon linearicons-thumbs-up"></div>
+              </div>
+              <h5 class="box-icon-megan-title"><a href="#">Best Service</a></h5>
+              <p class="box-icon-megan-text">The client is our #1 priority as we deliver top-notch customer service.</p>
+            </article>
+          </div>
+        </div>
+       
+      </section>
+      <section class="section section-sm bg-default">
+        <div class="container">
+            
+          <div id="successMessage" class="alert alert-success" style="display: none;">
+            <strong>Success!</strong> <span id="successText"></span>
+        </div>
+        
+        <form id="feedbackForm" method="post" class="comment-form">
+            <h6 class="comment">Feedback</h6>
+            {% csrf_token %}
+            {{ form.non_field_errors }}
+            
+            <div class="text form-group">
+                {{ form.content }}
+                <small class="form-text text-muted">Write your feedback here.</small>
+                {% if form.content.errors %}
+                    <div class="invalid-feedback">
+                        {{ form.content.errors.0 }}
+                    </div>
+                {% endif %}
+            </div>
+            
+            <button type="button" id="submitBtn" class="btn btn-primary">Submit</button>
+        </form>
+        </div>
+    </section>     
+    
+
+ {% endblock %}

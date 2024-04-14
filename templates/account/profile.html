@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DailyFood</title>
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'images/logo/favicon.png' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/fonts.css' %}">
+</head>
+
+<body>
+   
+    <div class="profile-container">
+        {% block content %}
+        <a href="{% url 'index' %}"><i style='font-size:15px' class='fas fa-angle-left'></i> Back</a>
+        <div class="profile-header">
+            <h3>Profile</h3>
+        </div>
+        <hr>
+        <div class="profile-content">
+            <div class="profile-image">
+                <!-- Add user profile image here -->
+                <a href="{{ customer.picURL }}"><img src="{{ customer.picURL }}" id="profile-image"></a>
+            </div>
+            <div class="profile-details">
+                <h4>Username: {{ user.username }}</h4>
+                <h5>First Name: {{ user.customer.first_name }}</h5>
+                <h5>Last Name: {{ user.customer.last_name }}</h5>
+                <h5>Email: {{ user.customer.email }}</h5>
+                <h5>Phone Number: {{ user.customer.phone }}</h5>
+                <h5>Address: {{ user.customer.address }}</h5>
+                
+            </div>
+        </div>
+        <div class="profile-actions">
+            <!-- Add buttons or links for profile actions, e.g., edit profile, change password, etc. -->
+            <a href="{% url 'edit_profile' %}">Edit Profile</a>
+            <a href="{% url 'change_password' %}">Change Password</a>
+            <!-- Add more actions as needed -->
+        </div>
+        {%endblock%}
+    </div>
+</body>
+</html>

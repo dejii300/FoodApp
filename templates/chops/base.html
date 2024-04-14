@@ -1,0 +1,249 @@
+{% load static %}
+<!DOCTYPE html>
+<html class="wide wow-animation textalin" lang="en">
+  <head>
+    <title>DailyFood</title>
+
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+	  <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'images/logo/favicon.png' %}">
+    
+    
+       
+    <!-- Stylesheets-->
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Roboto:100,300,300i,400,500,600,700,900%7CRaleway:500">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/fonts.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <script type="text/javascript">
+      var user = '{{request.user}}'
+      function getToken(name) {
+      let cookieValue = null;
+      if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+          const cookie = cookies[i].trim();
+          // Does this cookie string begin with the name we want?
+          if (cookie.substring(0, name.length + 1) === (name + '=')) {
+            cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+            break;
+          }
+        }
+      }
+      return cookieValue;
+    }
+    const csrftoken = getToken('csrftoken');
+
+    function getCookie(name) {
+      var cookieArr = document.cookie.split(";");
+      for(var i = 0; i < cookieArr.length; i++) {
+        var cookiePair = cookieArr[i].split("=");
+        if(name == cookiePair[0].trim()){
+          return decodeURIComponent(cookiePair[1]);
+        }
+      }
+      return null;
+    }
+    var cart = JSON.parse(getCookie('cart'))
+    if(cart == undefined){
+      cart = {}
+      console.log('Cart was created!')
+      document.cookie = 'cart=' + JSON.stringify(cart) + ";domain=;path=/"
+    }
+    console.log('cart:', cart)
+  </script>
+       
+    <div>
+      
+    
+      <!-- Top Banner-->
+      <!-- Page Header-->
+      <header class="section page-header">
+        
+        <!-- RD Navbar-->
+        <div class="rd-navbar-wrap">
+          
+          <nav class="rd-navbar rd-navbar-modern" data-layout="rd-navbar-fixed" data-sm-layout="rd-navbar-fixed" data-md-layout="rd-navbar-fixed" data-md-device-layout="rd-navbar-fixed" data-lg-layout="rd-navbar-static" data-lg-device-layout="rd-navbar-fixed" data-xl-layout="rd-navbar-static" data-xl-device-layout="rd-navbar-static" data-xxl-layout="rd-navbar-static" data-xxl-device-layout="rd-navbar-static" data-lg-stick-up-offset="56px" data-xl-stick-up-offset="56px" data-xxl-stick-up-offset="56px" data-lg-stick-up="true" data-xl-stick-up="true" data-xxl-stick-up="true">
+            <div class="rd-navbar-inner-outer">
+              <div class="rd-navbar-inner">
+                <!-- RD Navbar Panel-->
+                <div class="rd-navbar-panel">
+                  <!-- RD Navbar Toggle-->
+                  <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
+                  <!-- RD Navbar Brand-->
+                  <div class="rd-navbar-brand"><a  href="{% url 'index'%}"><img class="brand-logo-dark" src="{% static 'images/logo/Logo1.png' %}" alt="" width="198" height="66"/></a></div>
+                  
+                      <a href="{% url 'cart' %}">
+                        <img class="img_logo" id="cart-icon" src="{% static 'images/index/cart.png' %}">
+                      </a>
+                          <p class="pi" id="cart-total">{{cartItems}}</p>
+                      
+                </div>
+
+                
+                <div class="rd-navbar-right rd-navbar-nav-wrap">
+                  <div class="rd-navbar-aside">
+                    <ul class="rd-navbar-contacts-2">
+                      <li>
+                        <div class="unit unit-spacing-xs">
+                          <div class="unit-left"><span class="icon mdi mdi-phone"></span></div>
+                          <div class="unit-body"><a class="phone" href="tel:#">+2348100939586</a></div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="unit unit-spacing-xs">
+                          <div class="unit-left"><span class="icon mdi mdi-map-marker"></span></div>
+                          <div class="unit-body"><a class="address" href="">3b christ alli creacent ikoyi</a></div>
+                        </div>
+                      </li>
+                    </ul>
+                    <ul class="list-share-2">
+                      <li><a class="icon mdi mdi-facebook" href="#"></a></li>
+                      <li><a class="icon mdi mdi-twitter" href="#"></a></li>
+                      <li><a class="icon mdi mdi-instagram" href="#"></a></li>
+                      <li><a class="icon mdi mdi-google-plus" href="#"></a></li>
+                    </ul>
+                  </div>
+                  <div class="rd-navbar-main">
+                    <!-- RD Navbar Nav-->
+                    <div class="form-inline my-2 my-lg-0">
+                      <ul class="rd-navbar-nav">
+                        <li class="rd-nav-item"><a class="rd-nav-link" href="{% url 'index' %}" class="bx bx-home"> <span>Home</span></a></li>
+                        <li class="rd-nav-item"><a class="rd-nav-link" href="{% url 'chops' %}" ><i class="bx bx-user"></i> <span>Chops</span></a></li>
+
+                        <li class="rd-nav-item"><a class="rd-nav-link" href="{% url 'event_form' %}"><i class="bx bx-book-content"></i> <span>Event</span></a></li>
+                      
+                        
+                        <li class="rd-nav-item" id="categoryDropdown">
+                            <a class="rd-nav-link" href="#">Category <span class="dropdown-arrow"></span></a>
+                            
+                            <div class="dropdown-c">
+                                {% for category in categories %}
+                                <!-- Dropdown items go here -->
+                                <a class="dropdown-item" href="{% url 'product_category' category.name %}">{{category.name}}</a>
+                                <!-- Add more dropdown items as needed -->
+                                {% endfor %}
+                            </div>
+                            
+                        </li>
+                        
+                      
+                        <li class="rd-nav-item" id="settingDropdown">
+                            <a class="rd-nav-link" href="#">Settings <span class="dropdown-arrow"></span></a>
+                            <div class="dropdown-c">
+                                <!-- Dropdown items go here -->
+                                <a class="dropdown-item" href="{% url 'profile' %}">Profile</a>
+                                <a class="dropdown-item" href="{% url 'user_order' %}">Orders </a>
+                                
+                                <!-- Add more dropdown items as needed -->
+                            </div>
+                        </li>
+                        <li class="rd-nav-item"><a class="rd-nav-link" href="{% url 'foodvideolist' %}">Learn</a></li>
+                        <li class="rd-nav-item"><a class="rd-nav-link" href="{% url 'aboutus'%}">About-us</a></li>
+                        
+                        {% if request.user.is_authenticated %}
+                        
+                        <li class="rd-nav-item"><a class="rd-nav-link" href="{% url 'logout' %}">Logout</a></li>
+                        {% else %}
+                        <li class="rd-nav-item"><a class="rd-nav-link" href="{% url 'login' %}">Login</a></li>
+                        {% endif %}
+                        
+                        
+                      </ul>
+                    </div>
+                </div>
+                
+
+                
+                
+              </div>
+            </div>
+          </nav>
+        </div>
+      </header>
+      
+      
+  {% block content %}
+
+ 
+  {% endblock %}
+
+  <!-- Bottom Banner--><a class="section section-banner av" href="https://www.templatemonster.com/intense-multipurpose-html-template.html"><img src="{% static 'images/banner/adv-here.jpg' %}" alt="" width="1600" height="310"></a>
+  <!-- Page Footer-->
+  <!-- Page Footer-->
+  <footer class="section footer-modern context-dark footer-modern-2">
+    
+
+    <div class="footer-modern-line-2">
+      <div class="container-foot">
+        <div class="row row-30 align-items-center">
+          <div class="col-sm-6 col-md-7 col-lg-4 col-xl-4">
+            <div class="row row-30 align-items-center text-lg-center">
+              <div class="col-md-7 col-xl-6"><a class="brand" href="#"><img src="{% static 'images/logo/Logo2.png' %}" alt="" width="198" height="66"/></a></div>
+              <div class="col-md-5 col-xl-6">
+                <!-- <div class="iso-1"><span><img src="images/like-icon-58x25.png" alt="" width="58" height="25"/></span><span class="iso-1-big">9.4k</span></div> -->
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-12 col-lg-8 col-xl-8 oh-desktop">
+            <div class="group-xmd group-sm-justify">
+              <div class="footer-modern-contacts wow slideInUp">
+                <div class="unit unit-spacing-sm align-items-center">
+                  <div class="unit-left"><span class="icon icon-24 mdi mdi-phone"></span></div>
+                  <div class="unit-body"><a class="phone" href="tel:#">+2348100939586</a></div>
+                </div>
+              </div>
+              <div class="footer-modern-contacts wow slideInDown">
+                <div class="unit unit-spacing-sm align-items-center">
+                  <div class="unit-left"><span class="icon mdi mdi-email"></span></div>
+                  <div class="unit-body"><a class="mail" href="mailto:#">uzomachimdindu300@gmail.com</a></div>
+                </div>
+              </div>
+              <div class="wow slideInRight">
+                <ul class="list-inline footer-social-list footer-social-list-2 footer-social-list-3">
+                  <li><a class="icon mdi mdi-facebook" href="#"></a></li>
+                  <li><a class="icon mdi mdi-twitter" href="#"></a></li>
+                  <li><a class="icon mdi mdi-instagram" href="#"></a></li>
+                  <li><a class="icon mdi mdi-google-plus" href="#"></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-modern-line-3">
+      <div class="container">
+        <div class="row row-10 justify-content-between">
+          <div class="col-md-6"><span>3b christ alli creacent ikoyi</span></div>
+          <div class="col-md-auto">
+            <!-- Rights-->
+            <p class="rights"><span>&copy;&nbsp;</span><span class="copyright-year"></span><span></span><span>.&nbsp;</span><span> Developed&nbsp;by&nbsp;<a href="#">UC</a></span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+ 
+
+  </div>
+  <!-- Global Mailform Output-->
+  <div class="snackbars" id="form-output-global"></div>
+  <!-- Javascript-->
+  <script src="{% static 'js/core.min.js' %}"></script>
+  <script src="{% static 'js/script.js' %}"></script>
+  <script src="{% static 'js/cart.js' %}"></script>
+  
+
+
+
+</body>
+</html>    
+

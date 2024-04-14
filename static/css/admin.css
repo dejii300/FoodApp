@@ -1,0 +1,302 @@
+
+/* adin css */
+body, h1, h2, p, ul, li {
+	margin: 0;
+	padding: 0;
+  }
+  
+  body {
+	font-family: Arial, sans-serif;
+	background-color: #f4f4f4;
+  }
+  
+  .cate{
+    color: white;
+  }
+  .container {
+	max-width: 800px;
+	margin:  auto;
+  }
+  
+  h2 {
+	color: #333;
+  }
+  
+  form {
+	margin-top: 20px;
+  }
+  
+  form table {
+	width: 100%;
+	border-collapse: collapse;
+	margin-bottom: 20px;
+  }
+  
+  form th, form td {
+	border: 1px solid #ddd;
+	padding: 10px;
+  }
+  
+  button {
+	background-color: #3498db;
+	color: #fff;
+	padding: 10px 20px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	margin-right: 10px;
+  }
+  
+  a {
+	text-decoration: none;
+	color: #3498db;
+  }
+
+  /* Reset some default styles */
+body, h1, h2, h3, p, ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+/* Basic styling for the product list */
+h2 {
+    color: #333;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+/* Styling for the product detail */
+.product-detail {
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+.product-detail h2 {
+    color: #333;
+}
+
+.product-detail p {
+    color: #555;
+}
+
+/* Styling for the product form */
+.product-form {
+    max-width: 400px;
+    margin: 20px auto;
+}
+
+.product-form h2 {
+    color: #333;
+}
+
+.product-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.product-form label {
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.product-form input,
+.product-form textarea {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.product-form button {
+    padding: 10px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.product-form button:hover {
+    background-color: #2980b9;
+}
+
+/* Styling for the product delete confirmation */
+.product-delete {
+    max-width: 400px;
+    margin: 20px auto;
+}
+
+.product-delete h2 {
+    color: #333;
+}
+
+.product-delete p {
+    color: #555;
+}
+
+.product-delete form {
+    margin-top: 15px;
+}
+
+.product-delete form button {
+    padding: 10px;
+    background-color: #e74c3c;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.product-delete form button:hover {
+    background-color: #c0392b;
+}
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.ti{
+    border: 1px solid #ddd;
+    padding: 8px;
+    max-width: 390px;
+    text-align: left;
+    display: block;
+}
+
+
+th {
+    background-color: #beb9b9;
+}
+
+.hello-msg{
+    font-size: 18px;
+    color: #fff;
+    margin-right: 20px;
+}
+
+.bodyboo {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+  }
+  .containerboo {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  .hi {
+    color: #333;
+  }
+  .pg {
+    color: #555;
+  }
+  .activation-link {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+  
+  .activation-link:hover {
+    background-color: #0056b3;
+  }
+
+  a {
+    display: block;
+    margin-top: 5px;
+    text-decoration: none;
+    color: black;
+    font-size: small;
+}
+
+.pagination {
+	margin-top: 20px;
+	text-align: center;
+}
+
+.pagination a {
+	color: #007bff;
+	display: inline-block;
+	padding: 8px 16px;
+	text-decoration: none;
+	transition: background-color 0.3s;
+	border: 1px solid #007bff;
+	border-radius: 5px;
+	margin: 0 4px;
+}
+
+.pagination a:hover {
+	background-color: #007bff;
+	color: white;
+}
+
+.pagination .current {
+	font-weight: bold;
+}
+
+.search{
+	align-items: stretch;
+	display:flex;
+}
+
+.formS {
+  background: #f4f4f4;
+  width: 300px;
+  height: 100px;
+  margin: 30px auto;
+  overflow: hidden;
+  position: relative;
+	border: 0px;
+	box-shadow: 0 0px 0px 0px rgba(0,0,0,0.0);
+
+}
+
+.buttonS {
+  background-color: #4caf50;
+  color: #fff;
+  padding: 9px 15px;
+  border: none;
+  height: fit-content;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 0px;
+}
+
+.sug{
+	visibility: visible;
+	color: #000000;
+	display: inline-block;
+	position: absolute;
+  margin-top: -5px;
+  left: 0;
+  background-color: #f9f9f9;
+  min-width: 200px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+  

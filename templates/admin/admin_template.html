@@ -1,0 +1,133 @@
+{% extends 'admin/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<h3>Date: {{ today|date:"F d, Y" }}</h3>
+<hr>
+<br>
+<div class="row">
+    <div class="col">
+        <div class="col-md">
+            <div class="card text-center text-white mb-3" id="total-orders">
+                <div class="card-header">
+                    <h5 class="card-title">Total-orders</h5>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">{{total_orders}}</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="col">
+        <div class="col-md">
+            <div class="card text-center text-white mb-3" id="total-orders">
+                <div class="card-header">
+                    <h5 class="card-title">Orders Processing</h5>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">{{processing}}</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col">
+        <div class="col-md">
+            <div class="card text-center text-white mb-3" id="total-orders">
+                <div class="card-header">
+                    <h5 class="card-title">Orders out for delivery </h5>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">{{out_for_delivery}}</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="col-md">
+            <div class="card text-center text-white mb-3" id="total-orders">
+                <div class="card-header">
+                    <h5 class="card-title">Orders Delivered</h5>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">{{delivered}}</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+<a class="btn btn-sm btn-info"  href="{% url 'daily_total' %}">Daily Total</a>
+<div class="row">
+    <div class="col-md-5">
+        <h5>Events</h5>
+        <hr>
+        
+            <div class="card card-body">
+                <button class="btn btn-primary btn-sm btn-block" id="eventBtn">Click to show  event orders</button>
+              <div id="eventContainer" style="display: none;">
+                <table class="table table-sm">
+                    <tr>
+                        <th></th>
+                        <th>username</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                    </tr>
+                    {% for event in events %}
+                    {% if event.paid %}
+                        <tr>
+                            <td><a class="btn btn-sm btn-info" href="{% url 'events_detail' event.id %}">View</a></td>
+                            <td>{{event.customer.username}}</td>
+                            <td>{{event.date}}</td>
+                            <td>{{event.status}}</td>
+                        </tr>
+                        {% endif %}
+                    {% endfor %}
+                </table>
+               </div>
+            </div>
+    </div>
+
+    <div class="col-md-7">
+        <h5>ORDERS</h5>
+        <hr>
+        <div class="card card-body">
+            <a class="btn btn-primary btn-sm btn-block" href="">Orders</a>
+            <form method="get" action="{% url 'home' %}">
+                
+                <input type="date" id="date_input" name="selected_date" required>
+                <button type="submit" class="btn btn-sm btn-primary">Enter</button>
+            </form>
+            <table class=" table table-sm">
+                <tr>
+                    <th></th>
+                    <th>username</th>
+                    <th>Status</th>
+                    
+                    
+                </tr>
+                {% for order in orders %}
+                {% if order.complete %}
+                    <tr>
+                        <td><a class="btn btn-sm btn-info" href="{% url 'update_order' order_id=order.id  %}">View</a></td>
+                        <td>{{order.customer.username}}</td>
+                        <td>{{order.status}}</td>
+
+                        
+
+                    </tr>
+                {% endif %}
+                {% endfor %}   
+        </table>
+        </div>
+
+    </div>
+</div>
+
+
+</html>
+
+{% endblock %}

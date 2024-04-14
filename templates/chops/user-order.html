@@ -1,0 +1,132 @@
+{% extends "chops/base.html" %}
+
+{% load static %}
+{% block content %}
+<br>
+
+<div class="row">
+    <div class="col">
+        <div class="col-md">
+            <div class="card text-center text-white mb-3" id="total-orders">
+                <div class="card-header">
+                    <h5 class="card-title">Orders Processsing</h5>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-titles">{{processing}}</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="col-md">
+            <div class="card text-center text-white mb-3" id="total-orders">
+                <div class="card-header">
+                    <h5 class="card-title">Orders out for delivery</h5>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-titles">{{out_for_delivery}}</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="col-md">
+            <div class="card text-center text-white mb-3" id="total-orders">
+                <div class="card-header">
+                    <h5 class="card-title">Orders delivered</h5>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-titles">{{delivered}}</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="form">
+    <h2>Your Orders</h2>
+
+    {% for order in page_obj %}
+        {% if order.complete %}
+            <h4>Order #{{ order.id }} - {{ order.status }}</h4>
+            <!-- Rest of the order details as in your original template -->
+            <p>Date Ordered: {{ order.date_ordered }}</p>
+            
+            <!-- Order Items for the Current Order -->
+            <ul class="ulu">
+                {% for order_item in order.orderitem_set.all %}
+                    <li class="lii">
+                        Product: {{ order_item.product.name }}<br>
+                        Quantity: {{ order_item.quantity }}<br>
+                        <br>
+                        
+                    </li>
+                    <hr>
+                {% endfor %}
+            </ul>
+
+            <!-- Total Items and Order Value for the Current Order -->
+            <p>Total Items in Order: {{ order.get_cart_items }}</p>
+            <p>Total Order Value: {{ order.get_cart_total }}</p>
+
+            <hr>
+
+            {% if order.shippingaddress %}
+                <!-- Display Shipping Address -->
+                <h4>Delivery Address</h4>
+                <p>Location: {{ order.shippingaddress.delivery }}</p>
+                <p>Address: {{ order.shippingaddress.address }}</p>
+                <p>Phone 1: {{ order.shippingaddress.phone1 }}</p>
+                <p>Phone 2: {{ order.shippingaddress.phone2 }}</p>
+                <P>Additional infomation: {{order.shippingaddress.additional_information }}</P>
+                <p>Customize: {% if order_item.customize %}<img src="{{ order_item.customize.url }}" alt="Customization Image">{% endif %}</p>
+            {% else %}
+                <p>No shipping address available for this order.</p>
+            {% endif %}
+
+            <hr>
+        {% endif %}
+    
+
+        <h2>Your Events</h2>
+
+        {% for event in events %}
+            {% if event.paid %}
+                <h4>Order #{{ event.id }} - {{ event.status }}</h4>
+                <!-- Rest of the order details as in your original template -->
+                <p>Event Date: {{ event.date }} - {{ event.time}}</p>
+                
+                <!-- Order Items for the Current Order -->
+                <ul class="ulu">
+                    {% for event_item in event.eventitem_set.all %}
+                        <li class="lii">
+                            Product: {{ event_item.chops.name }}<br>
+                            Guest: {{ event_item.guest }}<br>
+                            <br>
+                            
+                        </li>
+                        <hr>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endfor %} 
+    {% endfor %}
+    <div class="pagination">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+                <a href="?page=1">&laquo; first</a>
+                <a href="?page={{ page_obj.previous_page_number }}">&laquo; previous</a>
+            {% endif %}
+    
+            <span class="current">
+                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+            </span>
+    
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">&raquo; next</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+            {% endif %}
+        </span>
+    </div>   
+</div>
+{% endblock %}

@@ -1,0 +1,79 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/fonts.css' %}">
+    <link rel="stylesheet" href="{% static 'css/event.css' %}">
+    <title>DailyFood</title>
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'images/logo/favicon.png' %}">
+</head>
+<body>
+  <div class="formx">
+        <a href="{% url 'review_page' event_id=event.id %}"><i style='font-size:15px' class='fas fa-angle-left'></i> Back</a>
+        <h2>Checkout</h2>
+        <p>Event: {{ event }}</p>
+
+        <h3>Selected Products:</h3>
+        <table class="table_b">
+            <thead>
+                <tr>
+                    <th>Chops</th>
+                    <th>Guests</th>
+                    <th>Price</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in event_items %}
+                    <tr>
+                        <td>{{ item.chops.name }}</td>
+                        <td>{{ item.guest }}</td>
+                        <td>{{ item.chops.price }}</td>
+                        <td>{{ item.total }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <p>Total Amount: {{ finaltotal }}</p>
+
+        <div class="pay_btn">
+            <button type="submit" class="button_b" onclick="payWithPaystack(event)">Proceed with Payment</button>
+            <button class="cancel"><a class="can" href="{% url 'event_form' %}">Cancel</a></button>
+        </div>
+   
+  </div>
+</body>
+ <script src="https://js.paystack.co/v1/inline.js"></script>
+</html>
+<script>
+    function payWithPaystack() {
+        let currency = 'NGN';
+        let plan = '';
+        let ref = '{{payment.ref}}';
+        let amount = '{{payment.amount}}';
+        console.log("Amount Value:", amount);
+        let obj = {
+            key: '{{paystack_evnt_key}}',
+            email: '{{payment.customer.email}}',
+            amount: '{{amount_value}}',
+            
+            ref:ref,
+            callback: function (response) {
+                window.location.href = "{% url 'verify_event_payment' payment.ref %}";
+            },
+        };
+        console.log("Amount Value:", amount);
+        if (Boolean(currency)) {
+            obj.currency = currency.toUpperCase();
+        }
+        if (Boolean(plan)) {
+            obj.plan = plan;
+        }
+        var handler = PaystackPop.setup(obj);
+        handler.openIframe();
+    
+    }
+</script>

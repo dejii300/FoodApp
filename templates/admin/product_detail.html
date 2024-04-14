@@ -1,0 +1,13 @@
+{% extends 'admin/base.html' %}
+
+{% block content %}
+<a href="{% url 'product_list' %}"><i style='font-size:15px' class='fas fa-angle-left'></i> Back</a>
+<table class=" table table-sm">
+  <tr>
+    <td><a class="btn btn-sm btn-info"  href="{% url 'product_update' product.id %}">update products</a></td>
+    <td><h2>{{ product.name }}</h2></td>
+    <td><p>Price: {{ product.price }}</p></td>
+    <td><p>Description: {{ product.description }}</p></td>
+  </tr>
+{% endblock %}  
+</table>

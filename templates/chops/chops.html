@@ -1,0 +1,72 @@
+{% extends "chops/base.html" %}
+{% load custom_filters %}
+{% load static %}
+{% block content %}
+
+
+<section class="section section-lg bg-default">
+  <a class=" ai section section-banner text-center  d-xl-block" href="https://www.templatemonster.com/intense-multipurpose-html-template.html"><img src="{% static 'images/banner/advt_b.jpg' %}" alt="" width="1600" height="310"></a>
+  
+  <form class="formS" method="GET">
+    <div class="search">
+      <input type="text" name="query" id="search-input" placeholder="Search products...">
+      <button class="buttonS" type="submit">Search</button>
+    </div>
+    <div  class="sug" id="search-suggestions"></div>
+  </form>
+    
+    <div class="container">
+      <h3 class="oh-desktop"><span class="d-inline-block wow slideInUp">Select Delicious Chops</span></h3>
+      <div class="row row-lg row-30">
+        <div class="col-sm-6 col-g-4 col-xl-3">
+          
+            <!-- Product-->
+            {% for product in page_obj %}
+            <article class="product wow fadeInLeft" data-wow-delay=".15s">
+              <div class="product-figure " ><img class="img_products " src="{{product.imageURL}}" alt="product_image" width="300" height="300"/>
+              </div>
+              <div class="product-rating_av">
+                {% for i in 5|num_range %}
+                    {% if i < product.average_rating %}
+                        <span class="mdi mdi-star"></span>
+                    {% else %}
+                        <span class="mdi mdi-star text-gray-13"></span>
+                    {% endif %}
+                {% endfor %}
+            </div>
+              <h6 class="product-title">{{product.name}}</h6>
+              <div class="product-price-wrap">
+                <div class="product-price">₦{{product.price|floatformat:2}}</div>
+              </div>
+              <div class="product-button">
+                <div class="button-wrap"><a  data-product={{product.id}} data-action="add" class="button button-xs button-primary button-winona update-cart" >Add to cart</a></div>
+                <div class="button-wrap"><a class="button button-xs button-secondary button-winona" href="{% url 'chopsdetail' product.id %}">View Product</a></div>
+              </div>
+            </article>
+            {% endfor %} 
+          </div>
+       </div>
+    </div>
+    <div class="pagination">
+      <span class="step-links">
+          {% if page_obj.has_previous %}
+              <a href="?page=1">&laquo; first</a>
+              <a href="?page={{ page_obj.previous_page_number }}">previous &laquo;</a>
+          {% endif %}
+  
+          <span class="current">
+              Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+          </span>
+  
+          {% if page_obj.has_next %}
+              <a href="?page={{ page_obj.next_page_number }}">next &raquo;</a>
+              <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+          {% endif %}
+      </span>
+  </div>
+  </section>
+
+ 
+
+
+  {% endblock %}

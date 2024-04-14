@@ -1,0 +1,107 @@
+{% extends 'admin/base.html' %}
+
+{% block content %}
+
+<head>
+    <title>Daily Total</title>
+</head>
+
+<a href="{% url 'home' %}"><i style='font-size:15px' class='fas fa-angle-left'></i> Back</a>
+<br>
+<a class="btn btn-sm btn-info"  href="{% url 'product_list' %}">Products</a>
+<a class="btn btn-sm btn-info"  href="{% url 'evtproduct_list' %}">Eventproducts</a>
+<a class="btn btn-sm btn-info"  href="{% url 'view_comments' %}">Comments</a>
+<a class="btn btn-sm btn-info"  href="{% url 'delivery-list' %}">delivery</a>
+<a class="btn btn-sm btn-info"  href="{% url 'video_list' %}">Video list</a>
+<br>
+<br>
+
+<body>
+    <br>
+    <br>
+    <form method="get" action="{% url 'daily_total' %}">
+        <label for="date_input">Select Date:</label>
+        <input type="date" id="date_input" name="selected_date" required>
+        <button type="submit" class="btn btn-sm btn-primary">Get Statistics</button>
+    </form>
+    <br>
+    <br>
+    <h3>Date: {{ today|date:"F d, Y" }}</h3>
+    <h1>Daily Order Total</h1>
+    <table>
+        <tr>
+            <th>Total product amount</th>
+            <td>{{ total_product_amount }}</td>
+        </tr>
+        <tr>
+            <th>Total delivery amount</th>
+            <td>{{ total_delivery_amount }}</td>
+        </tr>
+        <tr>
+            <th>10% of total product amount</th>
+            <td>{{ ten_percent_of_product_amount }}</td>
+        </tr>
+        <tr>
+            <th>Balance after removing 10%</th>
+            <td>{{ balance_after_10_percent }}</td>
+        </tr>
+    </table>
+
+    <h1>Daily Event Total</h1>
+    <table>
+        <tr>
+            <th>Total Sum</th>
+            <td>{{ total_sum }}</td>
+        </tr>
+        <tr>
+            <th>10% of event</th>
+            <td>{{ total_sum_10percent }}</td>
+        </tr>
+        <tr>
+            <th>Balance after removing 10%</th>
+            <td>{{ balance }}</td>
+        </tr>
+    </table>
+
+    <h1>Daily Total</h1>
+    <table>
+        <tr>
+            <th>Total percent</th>
+            <td>{{ total_percent }}</td>
+        </tr>
+        <tr>
+            <th>Total Balance</th>
+            <td>{{ total_balance }}</td>
+        </tr>
+    </table>
+</body>
+<br>
+<br>
+<br>
+
+<div class="col">
+    <div class="col-md">
+        <div class="card text-center text-white mb-3" id="total-orders">
+            <div class="card-header">
+                <h5 class="card-title">Total customer</h5>
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">{{total_customers}}</h3>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col">
+    <div class="col-md">
+        <div class="card text-center text-white mb-3" id="total-orders">
+            <div class="card-header">
+                <h5 class="card-title">Active users</h5>
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">{{ total_active_users }}</h3>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="calendar"></div>
+{% endblock %}

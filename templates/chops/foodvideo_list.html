@@ -1,0 +1,49 @@
+{% extends "chops/base.html" %}
+
+{% load static %}
+{% block content %}
+
+
+
+<section class="section section-lg bg-default">
+  <a class=" ai section section-banner text-center  d-xl-block" href="https://www.templatemonster.com/intense-multipurpose-html-template.html"><img src="{% static 'images/banner/advt_b.jpg' %}" alt="" width="1600" height="310"></a>
+    <div class="container">
+      <h3 class="oh-desktop"><span class="d-inline-block wow slideInUp">Explore</span></h3>
+      <div class="row row-lg row-30">
+        <div class="col-sm-6 col-g-4 col-xl-3">
+          
+            <!-- Product-->
+            {% for video in page_obj %}
+            <a href="{% url 'foodvideo_detail' pk=video.pk %}">
+              <article class="wow fadeInLeft" data-wow-delay=".15s">
+                <div class="videofigure" ><img class="img_video " src="/proxy?url={{video.cover_imageURL}}" alt="product_image" width="300" height="300"/>
+                  <h6 class="product-title">Learn-{{ video.title }}</h6> 
+                </div>
+              </div>
+                
+              </article>
+            </a>
+            {% endfor %} 
+        </div>
+      </div>
+      
+    </div>
+    <div class="pagination">
+      <span class="step-links">
+          {% if page_obj.has_previous %}
+              <a href="?page=1">&laquo; first</a>
+              <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+          {% endif %}
+  
+          <span class="current">
+              Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+          </span>
+  
+          {% if page_obj.has_next %}
+              <a href="?page={{ page_obj.next_page_number }}">next</a>
+              <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+          {% endif %}
+      </span>
+     </div>
+</section>
+  {% endblock %}

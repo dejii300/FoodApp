@@ -1,0 +1,15 @@
+{% extends 'admin/base.html' %}
+
+{% block content %}
+
+<a href="{% url 'video_list' %}"><i style='font-size:15px' class='fas fa-angle-left'></i> Back</a>
+<br>
+<h1>{% if video %}Edit Video{% else %}New Video{% endif %}</h1>
+
+<form method="post" enctype="multipart/form-data" class="video-form">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Save</button>
+</form>
+
+{%endblock%}

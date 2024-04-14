@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" 
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
+
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'images/logo/favicon.png' %}">
+    <title>DailyFood</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/real.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/admin.css' %}">
+    <link rel="stylesheet" href="{% static 'css/fonts.css' %}">
+
+
+</head>
+
+<body>
+    {% include 'admin/Navbar.html' %}
+
+
+    {% block content %}
+
+
+    {% endblock %}
+
+    <hr>
+    <h5>Our footer</h5>
+
+
+    <script src="{% static 'js/core.min.js' %}"></script>
+    <script src="{% static 'js/cart.js' %}"></script>
+
+
+</body>
+</html>

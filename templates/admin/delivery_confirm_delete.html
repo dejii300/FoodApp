@@ -1,0 +1,13 @@
+{% extends 'admin/base.html' %}
+
+{% block content %}
+<a href="{% url 'delivery-list' %}"><i style='font-size:15px' class='fas fa-angle-left'></i> Back</a>
+<h2>Confirm Deletion</h2>
+
+<p>Are you sure you want to delete "{{ delivery.location }}"?</p>
+
+<form method="post" action="{% url 'delivery-delete' delivery.pk %}">
+    {% csrf_token %}
+    <button type="submit">Confirm Delete</button>
+</form>
+{%endblock%}
